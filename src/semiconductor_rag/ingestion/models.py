@@ -15,16 +15,11 @@ class PatentRecord:
     abstract: str
     description: str
     claims: str
+    full_text: str
     filename: str
     file_path: str
     word_count: int
     character_count: int
-
-    @property
-    def full_text(self) -> str:
-        """Return the retrieval source text in deterministic section order."""
-        sections = [self.abstract, self.description, self.claims]
-        return "\n\n".join(section for section in sections if section).strip()
 
 
 def record_from_path(path: Path, **values: object) -> PatentRecord:
