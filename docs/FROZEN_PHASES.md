@@ -6,6 +6,7 @@ This file records immutable engineering baselines used for regression and audita
 |---|---|---|---|
 | 0 | `phase-0-frozen` | `6ebab32819562fba28528748107cdff774f15fe6` | Frozen |
 | 1 | `phase-1-frozen` | `ac7709fdf0d10df6961ce040115466379c0c2e64` | Frozen |
+| 2 | `phase-2-frozen` | `830035486538f584ba677209d926cd1f5a89e2a1` | Frozen |
 
 ## Freeze policy
 
