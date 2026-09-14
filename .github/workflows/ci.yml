@@ -9,6 +9,9 @@ on:
 jobs:
   quality:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
 
     steps:
       - name: Checkout
@@ -17,11 +20,18 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: ${{ matrix.python-version }}
           cache: pip
 
-      - name: Install package and development dependencies
+      - name: Install package and pinned development dependencies
         run: python -m pip install --upgrade pip && python -m pip install -e ".[dev]"
+
+      - name: Show validated toolchain
+        run: |
+          python --version
+          ruff --version
+          black --version
+          pytest --version
 
       - name: Ruff
         run: ruff check .
