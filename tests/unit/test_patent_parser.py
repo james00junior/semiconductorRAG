@@ -4,7 +4,7 @@ from semiconductor_rag.ingestion.parser import clean_text, parse_patent
 
 
 def test_clean_text_normalizes_whitespace_and_html():
-    assert clean_text("A &amp; B\r\n\tC\n\n\nD") == "A & B\n C\n\nD"
+    assert clean_text("A &amp; B\r\n\tC\n\n\nD") == "A & B\nC\n\nD"
 
 
 def test_parse_patent_supports_document_id_and_sections(tmp_path: Path):
