@@ -1,0 +1,1 @@
+"""Patent ingestion primitives."""
