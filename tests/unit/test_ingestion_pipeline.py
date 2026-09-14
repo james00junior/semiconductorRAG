@@ -13,6 +13,7 @@ def make_record(document_id: str, text: str = "patent text") -> PatentRecord:
         abstract=text,
         description="",
         claims="",
+        full_text=text,
         filename=f"patent_{document_id}.txt",
         file_path=f"/tmp/patent_{document_id}.txt",
         word_count=len(text.split()),
