@@ -1,5 +1,3 @@
-from pathlib import Path
-
 import pytest
 
 from semiconductor_rag.ingestion.models import PatentRecord
