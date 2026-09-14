@@ -32,6 +32,7 @@ addopts = "-ra"
 line-length = 100
 target-version = "py311"
 src = ["src", "tests"]
+exclude = ["*.ipynb"]
 
 [tool.black]
 line-length = 100
