@@ -92,6 +92,7 @@ def parse_patent(path: Path) -> PatentRecord:
         abstract=abstract,
         description=description,
         claims=claims,
+        full_text=raw,
         word_count=len(re.findall(r"\b\w+\b", raw)),
         character_count=len(raw),
     )
