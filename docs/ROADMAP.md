@@ -4,71 +4,76 @@
 
 | Phase | Area | Status |
 |---|---|---|
-| 0 | Engineering foundation | In progress |
-| 1 | Data platform | Planned |
-| 2 | Production chunking | Planned |
-| 3 | Embedding pipeline | Planned |
-| 4 | Vector Search | Planned |
-| 5 | Retrieval quality | Planned |
-| 6 | RAG application | Planned |
-| 7 | Evaluation | Planned |
-| 8 | MLflow tracking | Planned |
-| 9 | Databricks orchestration | Planned |
-| 10 | Serving | Planned |
-| 11 | Observability and security | Planned |
-| 12 | Production release | Planned |
+| 0 | Engineering foundation | Frozen |
+| 1 | Python package and CI foundation | Frozen |
+| 2 | Patent ingestion and normalization | In progress |
+| 3 | Production chunking | Planned |
+| 4 | Embedding pipeline | Planned |
+| 5 | Vector Search | Planned |
+| 6 | Retrieval quality | Planned |
+| 7 | RAG application | Planned |
+| 8 | Evaluation | Planned |
+| 9 | MLflow tracking | Planned |
+| 10 | Databricks orchestration | Planned |
+| 11 | Serving | Planned |
+| 12 | Observability and security | Planned |
+| 13 | Production release | Planned |
 
 ## Phase sequence
 
 ### Phase 0 — Engineering foundation
 
-Repository structure, documentation, package configuration, tests, CI and development conventions.
+Repository structure, documentation, development conventions and initial production architecture.
 
-### Phase 1 — Data platform
+### Phase 1 — Python package and CI foundation
 
-Build deterministic ingestion, Bronze/Silver Delta layers, validation and lineage.
+Installable package, configuration, pinned development toolchain, unit tests and GitHub Actions quality gates.
 
-### Phase 2 — Chunking
+### Phase 2 — Patent ingestion and normalization
 
-Extract notebook chunking logic into tested production code and version the strategy.
+Extract deterministic corpus inventory, parsing and validation from the research notebooks. Establish the canonical patent data contract while preserving the complete source text for lineage and retrieval compatibility.
 
-### Phase 3 — Embeddings
+### Phase 3 — Production chunking
+
+Extract notebook chunking logic into tested production code and version the strategy. Chunk lineage must remain traceable to `document_id`.
+
+### Phase 4 — Embeddings
 
 Build incremental embedding generation and persistence. Unchanged chunks must not be embedded again.
 
-### Phase 4 — Vector Search
+### Phase 5 — Vector Search
 
-Create and validate the Databricks vector index from the retrieval-ready Delta data.
+Create and validate the Databricks vector index from retrieval-ready Delta data.
 
-### Phase 5 — Retrieval quality
+### Phase 6 — Retrieval quality
 
-Establish semantic baseline, then evaluate hybrid retrieval and reranking only where metrics justify them.
+Establish a semantic baseline, then evaluate hybrid retrieval and reranking only where metrics justify them.
 
-### Phase 6 — RAG application
+### Phase 7 — RAG application
 
 Separate retrieval, prompt construction, generation, evidence handling and citation logic.
 
-### Phase 7 — Evaluation
+### Phase 8 — Evaluation
 
 Introduce a fixed benchmark and retrieval/generation quality gates.
 
-### Phase 8 — MLflow
+### Phase 9 — MLflow
 
 Track reproducible RAG experiments and quality/latency metrics.
 
-### Phase 9 — Jobs
+### Phase 10 — Databricks orchestration
 
-Orchestrate ingestion through evaluation with Databricks Workflows and Asset Bundles.
+Orchestrate ingestion through evaluation with Databricks Workflows and Asset Bundles, using a dedicated semiconductor production workspace and governed Unity Catalog resources.
 
-### Phase 10 — Serving
+### Phase 11 — Serving
 
 Expose a stable research endpoint and deploy it through the same controlled lifecycle used for other production resources.
 
-### Phase 11 — Observability/security
+### Phase 12 — Observability/security
 
 Add operational telemetry, access controls, secret handling and auditability based on actual deployment requirements.
 
-### Phase 12 — Production release
+### Phase 13 — Production release
 
 Promote validated artifacts through dev → staging → production with explicit release controls and post-deployment verification.
 
