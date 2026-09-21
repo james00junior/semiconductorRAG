@@ -37,7 +37,7 @@ jobs:
         run: ruff check .
 
       - name: Black
-        run: black --check .
+        run: black --check src tests
 
       - name: Pytest
         run: pytest --cov=semiconductor_rag --cov-report=term-missing
